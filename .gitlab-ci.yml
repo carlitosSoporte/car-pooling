@@ -21,4 +21,4 @@ code_quality:
 test_a:
   stage: test
   script:
-    - 'npm run ng e2e'
+    - 'npm run ng test'
