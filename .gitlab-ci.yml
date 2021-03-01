@@ -21,4 +21,4 @@ code_quality:
 test_a:
   stage: test
   script:
-    - 'npm run ng test --no-watch --no-progress --browsers=ChromeHeadlessCI'
+    - 'ng test'
