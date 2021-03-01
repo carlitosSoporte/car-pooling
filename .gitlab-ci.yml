@@ -1,5 +1,11 @@
 default:
  image: node:15.10.0-alpine3.13
+ include:
+  - template: Code-Quality.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+  - template: Container-Scanning.gitlab-ci.yml
+  - template: Dependency-Scanning.gitlab-ci.yml
+
  before_script:
      - 'npm install'
 
