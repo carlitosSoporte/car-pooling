@@ -18,7 +18,7 @@ code_quality:
  script:
    - 'npm run ng lint'
 
-test_a:
+Test:
   stage: test
   script:
-    - 'ng test'
+    - 'npm run ng test'
