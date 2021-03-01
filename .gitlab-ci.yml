@@ -1,10 +1,5 @@
 default:
  image: node:15.10.0-alpine3.13
- include:
-  - template: Code-Quality.gitlab-ci.yml
-  - template: SAST.gitlab-ci.yml
-  - template: Container-Scanning.gitlab-ci.yml
-  - template: Dependency-Scanning.gitlab-ci.yml
 
  before_script:
      - 'npm install'
@@ -24,16 +19,12 @@ code_quality:
  script:
    - 'npm run ng lint'
 
-Test:
+test:karma:
   stage: test
-  variables:
-    CHROME_BIN: google-chrome
-  before_script:
-    - apt-get update && apt-get install -y apt-transport-https
-    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-    - sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-    - apt-get update && apt-get install -y google-chrome-stable
+  allow_failure: false
   script:
-    - npm run test:ci
-  coverage: '/Statements.*?(\d+(?:\.\d+)?)%/'
+  - ng test --progress false --watch false
+  tags:
+  - docker
+
 
