@@ -1,7 +1,15 @@
 default:
  image: node:15.10.0-alpine3.13
- before_script:
-     - 'npm install'
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+before_script:
+    - 'npm install'
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
@@ -18,7 +26,3 @@ code_quality:
  script:
    - 'npm run ng lint'
 
-Test:
-  stage: test
-  script:
-    - npm run ng test
