@@ -26,11 +26,3 @@ code_quality:
  script:
    - 'npm run ng lint'
 
-Test:
-  stage: test
-  script:
-    - npm run ng test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  tags:
-    - docker
-
-
