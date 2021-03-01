@@ -10,8 +10,15 @@ cache:
 
 stages:
     - validate
+    - test
+
 
 code_quality:
  stage: validate
  script:
    - 'npm run ng lint'
+
+test:
+  stage: test
+  script:
+    - 'npm run ng test'
