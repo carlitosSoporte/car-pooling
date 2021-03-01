@@ -23,7 +23,7 @@ test:karma:
   stage: test
   allow_failure: false
   script:
-  - ng test --progress false --watch false
+  - npm run ng test --progress false --watch false
   tags:
   - docker
 
