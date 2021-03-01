@@ -1,0 +1,17 @@
+default:
+ image: node:15.10.0-alpine3.13
+ before_script:
+     - 'npm install'
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+      - node_modules/
+
+stages:
+    - validate
+
+code_quality:
+ stage: validate
+ script:
+   - 'npm run ng lint'
