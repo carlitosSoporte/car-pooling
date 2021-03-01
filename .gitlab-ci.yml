@@ -21,6 +21,5 @@ code_quality:
 
 Test:
  stage: test
- image: circleci/node:10-browsers
  script:
    - 'npm run ng test --no-watch --no-progress --browsers=ChromeHeadlessCI'
